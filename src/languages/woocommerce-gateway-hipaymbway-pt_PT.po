@@ -1,0 +1,275 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce HiPay Comprafacil MB WAY\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-06 15:17+0000\n"
+"PO-Revision-Date: 2018-12-06 15:30+0000\n"
+"Last-Translator: user <user@example.com>\n"
+"Language-Team: Português\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.0; wp-4.9.8"
+
+#: class-wc-hipaymbway.php:40 class-wc-hipaymbway.php:211
+msgid "MB WAY via HiPay"
+msgstr "MB WAY via HiPay"
+
+#: class-wc-hipaymbway.php:43
+msgid "MB WAY"
+msgstr "MB WAY"
+
+#: class-wc-hipaymbway.php:44
+msgid "Pay with your MB WAY app"
+msgstr "Pague com a app MB WAY"
+
+#: class-wc-hipaymbway.php:100
+msgid "Enable/Disable"
+msgstr "Ativar/Desativar"
+
+#: class-wc-hipaymbway.php:102
+msgid "Activate payment method"
+msgstr "Ativar método de pagamento"
+
+#: class-wc-hipaymbway.php:106
+msgid "Use Sandbox"
+msgstr "Plataforma de Teste"
+
+#: class-wc-hipaymbway.php:108
+msgid "Activate test account"
+msgstr "Ativar conta de teste"
+
+#: class-wc-hipaymbway.php:112
+msgid "Entity"
+msgstr "Entidade"
+
+#: class-wc-hipaymbway.php:114
+msgid "Your user account entity."
+msgstr "A entidade da sua conta."
+
+#: class-wc-hipaymbway.php:116
+msgid "11249"
+msgstr "11249"
+
+#: class-wc-hipaymbway.php:117
+msgid "10241 / 12029"
+msgstr "10241 / 12029"
+
+#: class-wc-hipaymbway.php:121
+msgid "Username"
+msgstr "Utilizador"
+
+#: class-wc-hipaymbway.php:123
+msgid "Username for MB WAY webservice."
+msgstr "Username para o webservice MB WAY"
+
+#: class-wc-hipaymbway.php:127
+msgid "Password"
+msgstr "Senha"
+
+#: class-wc-hipaymbway.php:129
+msgid "Password for MB WAY webservice."
+msgstr "Password para o webservice MB WAY"
+
+#: class-wc-hipaymbway.php:136
+msgid "Default payment image"
+msgstr "Imagem do pagamento"
+
+#: class-wc-hipaymbway.php:138
+msgid "Default image used during the checkout process."
+msgstr "A imagem a visualizar durante o checkout"
+
+#: class-wc-hipaymbway.php:140
+msgid "No image"
+msgstr "Sem imagem"
+
+#: class-wc-hipaymbway.php:141
+msgid "Large"
+msgstr "Grande"
+
+#: class-wc-hipaymbway.php:142
+msgid "Medium"
+msgstr "Média"
+
+#: class-wc-hipaymbway.php:143
+msgid "Small"
+msgstr "Pequena"
+
+#: class-wc-hipaymbway.php:147
+msgid "Update stocks"
+msgstr "Atualizar stocks"
+
+#: class-wc-hipaymbway.php:149
+msgid "Reduce stocks only after payment confirmation."
+msgstr "Reduzir os stocks depois da confirmação do pagamento."
+
+#: class-wc-hipaymbway.php:165 class-wc-hipaymbway.php:168
+msgid "Category"
+msgstr "Categoria"
+
+#: class-wc-hipaymbway.php:184
+msgid "Category for MB WAY webservice."
+msgstr "Categoria da conta"
+
+#: class-wc-hipaymbway.php:212
+msgid "Payment with MB WAY app."
+msgstr "Pagamento com a app MB WAY."
+
+#: class-wc-hipaymbway.php:225
+msgid "SOAP Library"
+msgstr "Livraria SOAP"
+
+#: class-wc-hipaymbway.php:227 class-wc-hipaymbway.php:247
+msgid "Install and activate SOAP library."
+msgstr "Instalar e ativar a livraria SOAP."
+
+#: class-wc-hipaymbway.php:240
+msgid "Webservice configuration"
+msgstr "Configuração do Webservice"
+
+#: class-wc-hipaymbway.php:243
+msgid "Please check the configuration or the server access to the webservice."
+msgstr ""
+"Por favor verifique os dados de configuração e o acesso do seu servidor ao "
+"webservice."
+
+#: class-wc-hipaymbway.php:245
+msgid "Error: "
+msgstr "Erro:"
+
+#: class-wc-hipaymbway.php:259
+msgid "Ensure that you have SOAP library and Woocommerce REST API activated."
+msgstr ""
+"Certifique-se que tem a livraria SOAP e a API REST do Woocommerce ativadas."
+
+#: class-wc-hipaymbway.php:260
+msgid "Activate sandbox if you wish to use a test account."
+msgstr "Ativar se pretender usar uma conta de teste."
+
+#: class-wc-hipaymbway.php:261
+msgid "Entity, username, password and category are provided by HiPay."
+msgstr ""
+"Entidade, utilizador, senha e categoria são dados fornecidos pelo HiPay."
+
+#: class-wc-hipaymbway.php:269
+msgid "Please enter your phone number:"
+msgstr "Por favor indique o seu número de telemóvel com app MB WAY:"
+
+#: class-wc-hipaymbway.php:271
+msgid "If necessary, enter a different phone number to make the payment:"
+msgstr ""
+"Se necessario, indique um número diferente de telemóvel para efetuar o "
+"pagamento:"
+
+#: class-wc-hipaymbway.php:295
+msgid "Invalid MB WAY phone number."
+msgstr "Número de telefone inválido."
+
+#: class-wc-hipaymbway.php:315
+msgid "Waiting payment confirmation from MB WAY."
+msgstr "Aguarda a confirmação de pagamento do MB WAY."
+
+#: class-wc-hipaymbway.php:326 class-wc-hipaymbway.php:338
+msgid "Operation refused. Please try again or choose another payment method."
+msgstr ""
+"Operação recusada. Por favor tente de novo ou escolha outro métodos de "
+"pagamento."
+
+#: class-wc-hipaymbway.php:329
+msgid ""
+"Operation refused. Limit exceeded. Please try again or choose another "
+"payment method."
+msgstr ""
+"Operação recusada. Limite de pagamentos atingido. Por favor tente de novo ou "
+"escolha outro métodos de pagamento."
+
+#: class-wc-hipaymbway.php:332
+msgid ""
+"Operation refused. Invalid phone number. Please try again with another phone "
+"number or choose another payment method."
+msgstr ""
+"Operação recusada. Número de telemóvel inválido. Por favor tente de novo com "
+"outro número ou escolha outro métodos de pagamento."
+
+#: class-wc-hipaymbway.php:335
+msgid ""
+"Operation refused. Unassigned phone number. Please try again with another "
+"phone number or choose another payment method."
+msgstr ""
+"Operação recusada. Número de telemóvel não tem o serviço MB WAY ativo. Por "
+"favor tente de novo com outro número ou escolha outro métodos de pagamento."
+
+#: class-wc-hipaymbway.php:368
+msgid "Notification: Order not found."
+msgstr "Notificação: ordem não encontrada."
+
+#: class-wc-hipaymbway.php:373
+msgid "Notification: Transaction ID does not match."
+msgstr "Notificação: id da transação não corresponde."
+
+#: class-wc-hipaymbway.php:380
+msgid "Notification: Order amount and transaction amount do not match."
+msgstr "Notificação: valor da ordem e da transação não são iguais."
+
+#: class-wc-hipaymbway.php:388
+msgid "Notification: Unable to confirm payment status."
+msgstr ""
+"Notificação: foi impossivel confirmar a transação. Por favor confirme o "
+"estado."
+
+#: class-wc-hipaymbway.php:393
+msgid "Notification: Status code does not match."
+msgstr "Notificação: status da transação não corresponde."
+
+#: class-wc-hipaymbway.php:401
+msgid "Stock updated"
+msgstr "Stock atualizado"
+
+#: class-wc-hipaymbway.php:403
+msgid "MB WAY payment confirmed "
+msgstr "Pagamento MB WAY confirmado"
+
+#: class-wc-hipaymbway.php:408
+msgid "Waiting capture notification"
+msgstr "Aguarda notificação de captura"
+
+#: class-wc-hipaymbway.php:411
+msgid "Refunded"
+msgstr "Devolução confirmada"
+
+#: class-wc-hipaymbway.php:457
+msgid ""
+"Please confirm the payment using your MB WAY App. The order will be "
+"processed as soon as we get the payment confirmation."
+msgstr ""
+"Por favor confirme o pagamento através da sua app MB WAY. A compra será "
+"processada assim que recebermos a confirmação do pagamento."
+
+#. Name of the plugin
+msgid "WooCommerce HiPay Comprafacil MB WAY"
+msgstr "WooCommerce HiPay Comprafacil MB WAY"
+
+#. Description of the plugin
+msgid ""
+"Plugin WooCommerce for MB WAY payments via HiPay. For more information "
+"contact <a href=\"mailto:hipay.portugal@hipay.com\" target=\"_blank\">hipay."
+"portugal@hipay.com</a>."
+msgstr ""
+"Plugin WooCommerce para pagamentos MB WAY via HiPay. Para mais informações "
+"contactar <a href=\"mailto:hipay.portugal@hipay.com\" target=\"_blank\">"
+"hipay.portugal@hipay.com</a>."
+
+#. URI of the plugin
+msgid "http://www.hipaycomprafacil.com"
+msgstr "https://www.hipaycomprafacil.com"
+
+#. Author of the plugin
+msgid "Hi-Pay Portugal"
+msgstr "Hi-Pay Portugal"
+
+#. Author URI of the plugin
+msgid "https://www.hipaycomprafacil.com"
+msgstr "https://www.hipaycomprafacil.com"

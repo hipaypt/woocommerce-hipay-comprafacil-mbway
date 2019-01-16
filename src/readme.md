@@ -1,0 +1,1 @@
+﻿#HiPay MB WAY Plugin for Woocommerce
