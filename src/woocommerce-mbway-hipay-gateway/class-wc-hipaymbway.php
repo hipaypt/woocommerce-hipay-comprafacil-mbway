@@ -2,24 +2,24 @@
 /*
   Plugin Name: WooCommerce HiPay Comprafacil MB WAY
   Plugin URI: http://www.hipaycomprafacil.com
-  Description: Plugin WooCommerce for MB WAY payments via HiPay. For more information contact <a href="mailto:portugal@hipay.com" target="_blank">portugal@hipay.com</a>.
-  Version: 1.0.1
+  Description: Plugin WooCommerce for MB WAY payments via HiPay. For more information contact <a href="mailto:hipay.portugal@hipay.com" target="_blank">hipay.portugal@hipay.com</a>.
+  Version: 1.0.2
   Author: Hi-Pay Portugal
   Author URI: https://www.hipaycomprafacil.com
  */
 
 add_action('plugins_loaded', 'woocommerce_hipaymbway_init', 0);
 
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayClient.php');
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequest.php');
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestTransaction.php');
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestDetails.php');
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestResponse.php');
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestDetailsResponse.php');
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestTransactionResponse.php');
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayPaymentDetailsResult.php');
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestRefund.php');
-include_once(plugin_dir_path(__FILE__). DIRECTORY_SEPARATOR . 'HipayMbway/MbwayNotification.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayClient.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequest.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestTransaction.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestDetails.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestResponse.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestDetailsResponse.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestTransactionResponse.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayPaymentDetailsResult.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayRequestRefund.php');
+include_once(plugin_dir_path(__FILE__) . DIRECTORY_SEPARATOR . 'HipayMbway/MbwayNotification.php');
 
 use HipayMbway\MbwayClient;
 use HipayMbway\MbwayRequest;
@@ -31,7 +31,6 @@ use HipayMbway\MbwayRequestTransactionResponse;
 use HipayMbway\MbwayPaymentDetailsResult;
 use HipayMbway\MbwayRequestRefund;
 use HipayMbway\MbwayNotification;
-
 
 function woocommerce_hipaymbway_init() {
 
@@ -69,7 +68,7 @@ function woocommerce_hipaymbway_init() {
 
             add_action('woocommerce_api_wc_hipaymbway', array($this, 'check_callback_response'));
             add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
-			add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'save_category_option'));
+            add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'save_category_option'));
             add_action('woocommerce_thankyou_hipaymbway', array($this, 'thanks_page'));
         }
 
@@ -178,19 +177,19 @@ function woocommerce_hipaymbway_init() {
                     <fieldset>
                         <legend class="screen-reader-text"><span><?php _e('Category', 'woocommerce-gateway-hipaymbway'); ?></span></legend>
                         <select class="select " name="woocommerce_hipaymbway_category" id="woocommerce_hipaymbway_category" style="">
-                            <?php
-                            foreach ($business_areas as $key => $value) {
-                                $user_business_current = explode("|", $value);
-                                echo "<option value='" . $user_business_current[0] . "'";
-                                if ($user_business_current[0] == $woocommerce_hipaymbway_category)
-                                    echo " SELECTED";
-                                if ($user_business_current[1] == "disabled")
-                                    echo " disabled>" . __($user_business_current[2], 'woocommerce-gateway-hipaymbway');
-                                else
-                                    echo ">&nbsp;&nbsp;&nbsp;&nbsp;" . __($user_business_current[1], 'woocommerce-gateway-hipaymbway');
-                                echo "</option>";
-                            }
-                            ?>
+            <?php
+            foreach ($business_areas as $key => $value) {
+                $user_business_current = explode("|", $value);
+                echo "<option value='" . $user_business_current[0] . "'";
+                if ($user_business_current[0] == $woocommerce_hipaymbway_category)
+                    echo " SELECTED";
+                if ($user_business_current[1] == "disabled")
+                    echo " disabled>" . __($user_business_current[2], 'woocommerce-gateway-hipaymbway');
+                else
+                    echo ">&nbsp;&nbsp;&nbsp;&nbsp;" . __($user_business_current[1], 'woocommerce-gateway-hipaymbway');
+                echo "</option>";
+            }
+            ?>
                         </select>
                         <p class="description"><?php _e("Category for MB WAY webservice.", 'woocommerce-gateway-hipaymbway'); ?></p>
                     </fieldset>
@@ -210,7 +209,10 @@ function woocommerce_hipaymbway_init() {
             }
             if ($soap_active && $this->username != "" && $this->password != "") {
 
-                $mbway = new MbwayClient($this->sandbox);
+                if ($this->sandbox == "no")
+                    $this->sandbox = false;
+
+                $mbway = new MbwayClient((bool) $this->sandbox);
                 $mbwayRequestDetails = new MbwayRequestDetails($this->username, $this->password, "000000000", $this->entity);
                 $mbwayRequestDetailsResult = new MbwayRequestDetailsResponse($mbway->getPaymentDetails($mbwayRequestDetails)->GetPaymentDetailsResult);
                 if ($mbwayRequestDetailsResult->get_ErrorCode() <> -3) {
@@ -225,7 +227,7 @@ function woocommerce_hipaymbway_init() {
                 <tbody>
                     <tr>
                         <td class="wc-email-settings-table-status">
-                            <?php if ($soap_active) { ?>
+            <?php if ($soap_active) { ?>
                                 <span class="status-enabled"></span>
                             <?php } else {
                                 ?>
@@ -235,12 +237,12 @@ function woocommerce_hipaymbway_init() {
                         </td>
                         <td class="wc-email-settings-table-name"><?php echo __('SOAP Library', 'woocommerce-gateway-hipaymbway'); ?></td>
                         <td>
-                            <?php if (!$soap_active) echo __('Install and activate SOAP library.', 'woocommerce-gateway-hipaymbway'); ?>
+            <?php if (!$soap_active) echo __('Install and activate SOAP library.', 'woocommerce-gateway-hipaymbway'); ?>
                         </td>
                     </tr>
                     <tr>
                         <td class="wc-email-settings-table-status">
-                            <?php if ($soap_active && $has_webservice_access) { ?>
+            <?php if ($soap_active && $has_webservice_access) { ?>
                                 <span class="status-enabled"></span>
                             <?php } else {
                                 ?>
@@ -250,21 +252,21 @@ function woocommerce_hipaymbway_init() {
                         </td>
                         <td class="wc-email-settings-table-name"><?php echo __('Webservice configuration', 'woocommerce-gateway-hipaymbway'); ?></td>
                         <td><?php
-                            if (!$has_webservice_access) {
-                                echo __('Please check the configuration or the server access to the webservice.', 'woocommerce-gateway-hipaymbway');
-                                if ($has_webservice_access_error != "")
-                                    echo "<br>" . __('Error: ', 'woocommerce-gateway-hipaymbway') . $has_webservice_access_error;
-                            } elseif (!$soap_active) {
-                                echo __('Install and activate SOAP library.', 'woocommerce-gateway-hipaymbway');
-                            }
+                if (!$has_webservice_access) {
+                    echo __('Please check the configuration or the server access to the webservice.', 'woocommerce-gateway-hipaymbway');
+                    if ($has_webservice_access_error != "")
+                        echo "<br>" . __('Error: ', 'woocommerce-gateway-hipaymbway') . $has_webservice_access_error;
+                } elseif (!$soap_active) {
+                    echo __('Install and activate SOAP library.', 'woocommerce-gateway-hipaymbway');
+                }
                             ?></td>
                     </tr>
                 </tbody></table>				
 
             <table class="form-table">
-                <?php
-                $this->generate_settings_html();
-                ?>
+            <?php
+            $this->generate_settings_html();
+            ?>
             </table>
 
             <p>&bull;<?php _e('Ensure that you have SOAP library and Woocommerce REST API activated.', 'woocommerce-gateway-hipaymbway'); ?></p>
@@ -311,6 +313,8 @@ function woocommerce_hipaymbway_init() {
 
             //$callback_url = site_url() . '/wc-api/WC_HipayMbway/?order=' . $order_id;
             $callback_url = site_url() . '?wc-api=WC_HipayMbway&order=' . $order_id;
+            if ($this->sandbox == "no")
+                $this->sandbox = false;
             $mbway = new MbwayClient($this->sandbox);
             $mbwayRequestTransaction = new MbwayRequestTransaction($this->username, $this->password, $order_total, $mbway_phone, $billing_data['_billing_email'][0], $order_id, $this->category["woocommerce_hipaymbway_category"], $callback_url, $this->entity);
             $mbwayRequestTransaction->set_description($order_id);
@@ -360,50 +364,52 @@ function woocommerce_hipaymbway_init() {
             global $woocommerce;
             global $wpdb;
             $table_name = $wpdb->prefix . 'woocommerce_' . $this->id;
-		
-			$order_id = filter_input(INPUT_GET, 'order', FILTER_SANITIZE_NUMBER_INT);
-			if ( $order_id == "" ) {
-				exit;
-			}
-			$order_id = (int)$order_id;
-			
+
+            $order_id = filter_input(INPUT_GET, 'order', FILTER_SANITIZE_NUMBER_INT);
+            if ($order_id == "") {
+                exit;
+            }
+            $order_id = (int) $order_id;
+            if ($this->sandbox == "no")
+                $this->sandbox = false;
+
             try {
-                
-				$order = new WC_Order($order_id);
+
+                $order = new WC_Order($order_id);
                 $order_mbway = $wpdb->get_row("SELECT ID, reference, order_id, processed,sandbox FROM $table_name WHERE order_id = '" . $order_id . "'");
                 if (!isset($order_mbway->ID) || !isset($order_mbway->reference)) {
                     $order->add_order_note(__("Notification: Order not found.", "woocommerce-gateway-hipaymbway"));
                     exit;
-                }				
+                }
 
                 $mbway = new MbwayClient($this->sandbox);
                 $mbwayRequestDetails = new MbwayRequestDetails($this->username, $this->password, $order_mbway->reference, $this->entity);
                 $mbwayRequestDetailsResult = new MbwayRequestDetailsResponse($mbway->getPaymentDetails($mbwayRequestDetails)->GetPaymentDetailsResult);
-				
+
                 if ($mbwayRequestDetailsResult->get_ErrorCode() <> 0 || !$mbwayRequestDetailsResult->get_Success()) {
                     $order->add_order_note(__("Notification: Unable to confirm payment status.", "woocommerce-gateway-hipaymbway"));
                     exit;
                 }
-				
-                $detailStatusCode  = $mbwayRequestDetailsResult->get_MBWayPaymentDetails()->get_StatusCode();
-				$detailAmount      = $mbwayRequestDetailsResult->get_MBWayPaymentDetails()->get_Amount();
-				$detailOperationId = $mbwayRequestDetailsResult->get_MBWayPaymentDetails()->get_OperationId();
 
-				$transaction_id = $order_mbway->reference;
+                $detailStatusCode = $mbwayRequestDetailsResult->get_MBWayPaymentDetails()->get_StatusCode();
+                $detailAmount = $mbwayRequestDetailsResult->get_MBWayPaymentDetails()->get_Amount();
+                $detailOperationId = $mbwayRequestDetailsResult->get_MBWayPaymentDetails()->get_OperationId();
+
+                $transaction_id = $order_mbway->reference;
                 $order_total = $order->get_total();
 
                 if ($detailOperationId != $transaction_id) {
                     $order->add_order_note(__("Notification: Transaction ID does not match.", "woocommerce-gateway-hipaymbway"));
                     exit;
                 }
-								 
+
                 switch ($detailStatusCode) {
                     case "c1":
                         if ($this->stockonpayment == "yes") {
                             $order->reduce_order_stock();
                             $order->add_order_note(__('Stock updated', "woocommerce-gateway-hipaymbway"));
                         }
-                        $order->update_status('processing', __("MB WAY payment confirmed ", "woocommerce-gateway-hipaymbway") . " ".$transaction_id, 0);
+                        $order->update_status('processing', __("MB WAY payment confirmed ", "woocommerce-gateway-hipaymbway") . " " . $transaction_id, 0);
                         break;
                     case "c3":
                     case "c6":
@@ -419,7 +425,7 @@ function woocommerce_hipaymbway_init() {
                     case "c7":
                     case "c8":
                     case "c9":
-					case "vp2":
+                    case "vp2":
                         $order->update_status('cancelled', __("MB WAY payment cancelled.", "woothemes"), 0);
                         if ($this->stockonpayment != "yes") {
 
