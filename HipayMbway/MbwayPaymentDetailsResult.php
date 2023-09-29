@@ -30,17 +30,16 @@ class MbwayPaymentDetailsResult {
             $this->OperationId = $details->OperationId;
         if (isset($details->StatusDescriptionDetail))
             $this->StatusDescriptionDetail = $details->StatusDescriptionDetail;
-
-        if (isset($details->OperationId))
-            $this->OperationId = $details->OperationId;
-        if (isset($details->OperationId))
-            $this->OperationId = $details->OperationId;
-        if (isset($details->OperationId))
-            $this->OperationId = $details->OperationId;
-        if (isset($details->OperationId))
-            $this->OperationId = $details->OperationId;
-        if (isset($details->OperationId))
-            $this->OperationId = $details->OperationId;
+        if (isset($details->Amount))
+            $this->Amount = $details->Amount;
+        if (isset($details->Phone))
+            $this->Phone = $details->Phone;
+        if (isset($details->Description))
+            $this->Description = $details->Description;
+        if (isset($details->ValidRequest))
+            $this->ValidRequest = $details->ValidRequest;
+        if (isset($details->CategoryId))
+            $this->CategoryId = $details->CategoryId;
         if (isset($details->RequestDate))
             $this->RequestDate = $details->RequestDate;
         if (isset($details->UpdateStatusDate))
