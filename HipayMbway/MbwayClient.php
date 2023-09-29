@@ -9,8 +9,8 @@ namespace HipayMbway;
  */
 class MbwayClient {
 
-    const HIPAY_MBWAY_ENDPOINT_PRODUCTION = "https://mbway.hipay.pt/MBWayWebservice/MBWayV2.svc?singleWsdl";
-    const HIPAY_MBWAY_ENDPOINT_SANDBOX = "https://mbway.hipay.pt/MBWayWebservice-test/MBWayV2.svc?singleWsdl";
+    const HIPAY_MBWAY_ENDPOINT_PRODUCTION = "https://mbway.hipay.pt/Webservice/v4/MBWayV3.svc?singleWsdl";
+    const HIPAY_MBWAY_ENDPOINT_SANDBOX = "https://mbway.hipay.pt/MBWayWebservice-test/MBWayV3.svc?singleWsdl";
 
     private $soapClient;
     private $isSandbox;
@@ -50,18 +50,35 @@ class MbwayClient {
         }
     }
 
+    /*
+    * get payment status
+    */ 
     public function getPaymentDetails($request) {
         $result = $this->soapClient->GetPaymentDetails($request);
         return $result;
     }
 
+    /*
+    * request a new mbway transaction
+    */
     public function createPayment($request) {
         $result = $this->soapClient->CreatePayment($request);
         return $result;
     }
 
+    /*
+    * request a refund 
+    */
     public function requestRefund($request) {
-        return $request;
+        $result = $this->soapClient->RequestRefund($request);
+        return $result;
     }
 
+    /*
+    * get refund request status
+    */ 
+    public function getRequestRefundDetails($request) {
+        $result = $this->soapClient->GetRequestRefundDetails($request);
+        return $result;
+    }
 }

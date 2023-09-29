@@ -1,9 +1,9 @@
 <?php
 /*
   Plugin Name: WooCommerce HiPay Comprafacil MB WAY
-  Plugin URI: http://www.hipaycomprafacil.com
+  Plugin URI: https://github.com/hipaypt/woocommerce-hipay-comprafacil-mbway/
   Description: Plugin WooCommerce for MB WAY payments via HiPay. For more information contact <a href="mailto:hipay.portugal@hipay.com" target="_blank">hipay.portugal@hipay.com</a>.
-  Version: 1.0.4
+  Version: 1.1.0
   Author: Hi-Pay Portugal
   Author URI: https://www.hipaycomprafacil.com
  */
