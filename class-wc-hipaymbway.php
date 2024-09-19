@@ -3,7 +3,7 @@
   Plugin Name: WooCommerce HiPay Comprafacil MB WAY
   Plugin URI: https://github.com/hipaypt/woocommerce-hipay-comprafacil-mbway/
   Description: Plugin WooCommerce for MB WAY payments via HiPay. For more information contact <a href="mailto:hipay.portugal@hipay.com" target="_blank">hipay.portugal@hipay.com</a>.
-  Version: 1.1.0
+  Version: 1.1.1
   Author: Hi-Pay Portugal
   Author URI: https://www.hipaycomprafacil.com
  */
@@ -367,10 +367,12 @@ function woocommerce_hipaymbway_init() {
             $billing_data = get_post_meta($order_id);
             if (isset($_POST['billing_phone_alt']) && $_POST['billing_phone_alt'] != "")
                 $mbway_phone = sanitize_text_field($_POST['billing_phone_alt']);
-            elseif (isset($billing_data['_billing_phone'][0]))
-                $mbway_phone = sanitize_text_field($billing_data['_billing_phone'][0]);
+            else
+                $mbway_phone = (isset($billing_data['_billing_phone'][0])) ? sanitize_text_field($billing_data['_billing_phone'][0]) : sanitize_text_field($order->get_billing_phone());
 
             $mbway_phone = filter_var($mbway_phone, FILTER_SANITIZE_NUMBER_INT);
+			$mbway_email = (isset($billing_data['_billing_email'][0])) ? sanitize_text_field($billing_data['_billing_email'][0]) : sanitize_text_field($order->get_billing_email());
+
             if (strlen($mbway_phone) < 9) {
                 throw new Exception(__("Invalid MB WAY phone number.", 'woocommerce-gateway-hipaymbway'));
             }
@@ -383,7 +385,7 @@ function woocommerce_hipaymbway_init() {
             if ($this->sandbox == "no")
                 $this->sandbox = false;
             $mbway = new MbwayClient($this->sandbox);
-            $mbwayRequestTransaction = new MbwayRequestTransaction($this->username, $this->password, $order_total, $mbway_phone, $billing_data['_billing_email'][0], $order_id, $this->category["woocommerce_hipaymbway_category"], $callback_url, $this->entity);
+            $mbwayRequestTransaction = new MbwayRequestTransaction($this->username, $this->password, $order_total, $mbway_phone, $mbway_email, $order_id, $this->category["woocommerce_hipaymbway_category"], $callback_url, $this->entity);
             $mbwayRequestTransaction->set_description($order_id);
             $mbwayRequestTransaction->set_clientVATNumber("");
             $mbwayRequestTransaction->set_clientName("");
