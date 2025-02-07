@@ -3,7 +3,7 @@
   Plugin Name: WooCommerce HiPay Comprafacil MB WAY
   Plugin URI: https://github.com/hipaypt/woocommerce-hipay-comprafacil-mbway/
   Description: Plugin WooCommerce for MB WAY payments via HiPay. For more information contact <a href="mailto:hipay.portugal@hipay.com" target="_blank">hipay.portugal@hipay.com</a>.
-  Version: 1.1.1
+  Version: 1.1.2
   Author: Hi-Pay Portugal
   Author URI: https://www.hipaycomprafacil.com
  */
@@ -599,4 +599,16 @@ function woocommerce_hipaymbway_init() {
     }
 
     add_filter('woocommerce_payment_gateways', 'add_hipaymbway_gateway');
+
+    add_action('woocommerce_blocks_loaded', function() {
+
+        if (class_exists('Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
+            require_once  'includes/wc_hipaymbway_blocks_integration.php';
+            add_action('woocommerce_blocks_payment_method_type_registration', function($registry) {
+                $registry->register(new WC_HiPayMbway_Blocks_Integration());
+            });
+        }
+    }); 
+
+
 }
